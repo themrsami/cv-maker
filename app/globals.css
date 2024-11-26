@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 0.25in; /* 0.25 inches margin on all sides */
+    margin-header: 0;
+    margin-footer: 0;
+  }
+  
+  body {
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Hide browser's default header and footer */
+  html {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Hide Next.js development indicator */
+  .nextjs-toast {
+    display: none !important;
+  }
+}
+
+/* Custom print styles */
+@media print {
+  .page-container {
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 0.25in; /* Match page margin */
+  }
+}
+
+/* Remove URL and other default print information */
+@page {
+  size: A4;
+  margin: 0.25in; /* 0.25 inches margin */
+}
+
+/* Hide Next.js development indicator in all views */
+.nextjs-toast,
+.nextjs-toast-wrapper,
+.nextjs-static-indicator-toast-wrapper {
+  display: none !important;
+}
